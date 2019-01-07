@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
             input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
             /*
-             * Pen statements need finishing
+             * Pen statement if...
              */
 
             if (PenStatus == true)
@@ -105,6 +105,15 @@ namespace WindowsFormsApp1
                     }
 
                 }
+
+               // if (input.Contains("Repeat Circle")
+                   // {
+                  //  try
+                   // {
+                        //operater
+                    //}
+
+                //}
 
                 if (input.Contains("Rectangle"))
                 {
