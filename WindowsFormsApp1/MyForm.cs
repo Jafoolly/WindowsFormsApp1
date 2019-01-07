@@ -125,6 +125,37 @@ namespace WindowsFormsApp1
                     }
                 }
 
+                if (input.Contains("Polygon"))
+                {
+
+                        // Create pen.
+                        Pen blackPen = new Pen(Color.Black, 3);
+
+                        // Create points that define polygon.
+                        PointF point1 = new PointF(50.0F, 50.0F);
+                        PointF point2 = new PointF(100.0F, 25.0F);
+                        PointF point3 = new PointF(200.0F, 5.0F);
+                        PointF point4 = new PointF(250.0F, 50.0F);
+                        PointF point5 = new PointF(300.0F, 100.0F);
+                        PointF point6 = new PointF(350.0F, 200.0F);
+                        PointF point7 = new PointF(250.0F, 250.0F);
+                        PointF[] curvePoints =
+                                 {
+                 point1,
+                 point2,
+                 point3,
+                 point4,
+                 point5,
+                 point6,
+                 point7
+             };
+
+                        // Draw polygon curve to screen.
+                        graphics.DrawPolygon(blackPen, curvePoints);
+                    
+                }
+
+
                 if (input.Contains("Move"))
                 {
                     string[] movement = input.Split();
@@ -180,12 +211,7 @@ namespace WindowsFormsApp1
         }
         
 
-        
-
-        private void Load_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This is Load button");
-        }
+       
 
         private void Save_Click(object sender, EventArgs e)
         {
@@ -204,6 +230,36 @@ namespace WindowsFormsApp1
                     myStream.Close();
                 }
             }
+        }
+
+        private void Load_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+
+            MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
     }
 }

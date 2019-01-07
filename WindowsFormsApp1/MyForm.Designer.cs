@@ -46,6 +46,7 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.Savebutton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -157,10 +158,11 @@
             this.toolStripButton1,
             this.toolStripLabel2,
             this.Savebutton,
-            this.toolStripLabel3});
-            this.toolStrip2.Location = new System.Drawing.Point(1547, 0);
+            this.toolStripLabel3,
+            this.toolStripLabel4});
+            this.toolStrip2.Location = new System.Drawing.Point(1546, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(66, 1064);
+            this.toolStrip2.Size = new System.Drawing.Size(67, 1064);
             this.toolStrip2.TabIndex = 10;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -198,6 +200,13 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(63, 32);
             this.toolStripLabel3.Text = "Save";
             this.toolStripLabel3.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(64, 32);
+            this.toolStripLabel4.Text = "Load";
+            this.toolStripLabel4.Click += new System.EventHandler(this.Load_Click);
             // 
             // MyForm
             // 
@@ -245,6 +254,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripButton Savebutton;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
     }
 }
 
