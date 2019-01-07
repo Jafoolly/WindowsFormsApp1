@@ -38,6 +38,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,14 +51,13 @@
             this.pictureBox1.Size = new System.Drawing.Size(682, 597);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-          
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.button1.Location = new System.Drawing.Point(576, 42);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 91);
+            this.button1.Size = new System.Drawing.Size(146, 91);
             this.button1.TabIndex = 1;
             this.button1.Text = "Run";
             this.button1.UseVisualStyleBackColor = false;
@@ -69,14 +70,13 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(531, 733);
             this.textBox1.TabIndex = 2;
-           
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button2.Location = new System.Drawing.Point(1005, 42);
+            this.button2.Location = new System.Drawing.Point(892, 42);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 91);
+            this.button2.Size = new System.Drawing.Size(148, 91);
             this.button2.TabIndex = 3;
             this.button2.Text = "Clear Canvas";
             this.button2.UseVisualStyleBackColor = false;
@@ -85,9 +85,9 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button3.Location = new System.Drawing.Point(789, 42);
+            this.button3.Location = new System.Drawing.Point(728, 42);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 91);
+            this.button3.Size = new System.Drawing.Size(158, 91);
             this.button3.TabIndex = 4;
             this.button3.Text = "Clear Terminal";
             this.button3.UseVisualStyleBackColor = false;
@@ -119,16 +119,36 @@
             this.textBox3.TabIndex = 6;
             this.textBox3.Text = "Input";
             // 
-            // backgroundWorker1
+            // button5
             // 
-   
+            this.button5.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button5.Location = new System.Drawing.Point(1064, 42);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(148, 37);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "PenUP";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // Form1
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button4.Location = new System.Drawing.Point(1064, 95);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(148, 38);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "PenDOWN";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // MyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1613, 1064);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
@@ -136,7 +156,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "MyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My App";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -156,6 +176,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox textBox3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
 

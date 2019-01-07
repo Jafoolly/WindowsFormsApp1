@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         ShapeFactory shapeFactory = new ShapeFactory();
         Pen MyPen = new Pen(Color.Black);
         Graphics graphics;
+        bool PenStatus = true;
         int X = 0;
         int Y = 0;
 
@@ -83,68 +84,75 @@ namespace WindowsFormsApp1
             /*
              * Pen statements need finishing
              */
-             
-            if (input.Contains("Penup"))
-            {
-                //if penup, do this
-                
 
-                Console.WriteLine("Pen is up");
-            }
-           else if (input.Contains("Pendown"))
+            if (PenStatus == true)
             {
-                Console.WriteLine("Pen is down");
-            }
-               
-            if (input.Contains("Circle"))
-            {
-                try
+
+                if (input.Contains("Circle"))
                 {
-                    string[] moveCircle = input.Split();
-                    string radius = moveCircle[1];
+                    try
+                    {
+                        string[] moveCircle = input.Split();
+                        string radius = moveCircle[1];
 
-                    int Rad = int.Parse(radius);
+                        int Rad = int.Parse(radius);
 
-                    graphics.DrawEllipse(MyPen , X, Y, Rad, Rad);
+                        graphics.DrawEllipse(MyPen, X, Y, Rad, Rad);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error! The input should look like this Circle 50");
+                    }
+
                 }
-                catch (Exception)
+
+                if (input.Contains("Rectangle"))
                 {
-                    MessageBox.Show("Error! The input should look like this Circle 50");
+                    try
+                    {
+                        var moveRect = input.Split();
+                        var width = moveRect[1];
+                        var height = moveRect[2];
+
+                        var W = int.Parse(width);
+                        var H = int.Parse(height);
+
+                        graphics.DrawRectangle(MyPen, X, Y, W, H);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error! The input should look like this Rectangle 0 0");
+                    }
                 }
-                
+
+                if (input.Contains("Move"))
+                {
+                    string[] movement = input.Split();
+                    string x = movement[1];
+                    string y = movement[2];
+
+                    int x2 = int.Parse(x);
+                    int y2 = int.Parse(y);
+
+                    graphics.DrawLine(MyPen, X, Y, x2, y2);
+                    Y = x2;
+                    X = y2;
+                }
             }
-
-            if (input.Contains("Rectangle"))
+            else if (PenStatus == false)
             {
-                try
+                if (input.Contains("Move"))
                 {
-                    var moveRect = input.Split();
-                    var width = moveRect[1];
-                    var height = moveRect[2];
+                    string[] movement = input.Split();
+                    string x = movement[1];
+                    string y = movement[2];
 
-                    var W = int.Parse(width);
-                    var H = int.Parse(height);
+                    int x2 = int.Parse(x);
+                    int y2 = int.Parse(y);
 
-                    graphics.DrawRectangle(MyPen, X, Y, W, H);
+                    Y = x2;
+                    X = y2;
                 }
-                 catch (Exception)
-                {
-                    MessageBox.Show("Error! The input should look like this Rectangle 0 0");
-                }
-            }
-
-            if (input.Contains("Move"))
-            {
-                string[] movement = input.Split();
-                string x = movement[1];
-                string y = movement[2];
-
-                int x2 = int.Parse(x);
-                int y2 = int.Parse(y);
-
-                graphics.DrawLine(MyPen, X, Y, x2, y2);
-                Y = x2;
-                X = y2;
             }
         }
 
@@ -156,6 +164,19 @@ namespace WindowsFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text = String.Empty;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PenStatus = true;
+            MessageBox.Show("PEN IS DOWN");
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            PenStatus = false;
+            MessageBox.Show("PEN IS UP");
         }
     }
 }
