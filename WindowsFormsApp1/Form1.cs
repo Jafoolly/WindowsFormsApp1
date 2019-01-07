@@ -20,6 +20,8 @@ namespace WindowsFormsApp1
         ShapeFactory shapeFactory = new ShapeFactory();
         Pen pen = new Pen(Color.Black);
         Graphics g;
+        int X = 0;
+        int Y = 0;
 
 
         private ArrayList shapes = new ArrayList();
@@ -101,7 +103,7 @@ namespace WindowsFormsApp1
 
                     Console.WriteLine(radius);
 
-                    g.DrawEllipse(pen, 0, 0, rad, rad);
+                    g.DrawEllipse(pen, X, Y, rad, rad);
                 }
                 catch (Exception)
                 {
@@ -124,7 +126,7 @@ namespace WindowsFormsApp1
                     Console.WriteLine(width );
                     Console.WriteLine(height);
 
-                    g.DrawRectangle(pen, 0, 0, widf, heit);
+                    g.DrawRectangle(pen, X, Y, widf, heit);
                 }
                  catch (Exception)
                 {
@@ -132,7 +134,7 @@ namespace WindowsFormsApp1
                 }
             }
 
-            if (input.Contains("move"))
+            if (input.Contains("Move"))
             {
                 string[] movement = input.Split();
                 string x = movement[1];
@@ -144,7 +146,9 @@ namespace WindowsFormsApp1
                 Console.WriteLine(x);
                 Console.WriteLine(y);
 
-                g.DrawLine(pen, 0, 0, numX, numY);
+                g.DrawLine(pen, X, Y, numX, numY);
+                Y = numX;
+                X = numY;
             }
 
             for (int i = 0; i < shapes.Count; i++)
