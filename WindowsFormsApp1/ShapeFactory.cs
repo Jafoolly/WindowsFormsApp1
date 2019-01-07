@@ -12,10 +12,16 @@ namespace WindowsFormsApp1
             {
                 return new Circle();
             }
+
             else if (shapeType.Equals("RECTANGLE"))
                 {
                 return new Rectangle();
                 }
+
+           // else if (shapeType.Equals("TRIANGLE "))
+          //  {
+                //return new Triangle();
+            //}
             else
             {
                 System.ArgumentException argsEx = new System.ArgumentException("Error; " + shapeType + " does not exist");
