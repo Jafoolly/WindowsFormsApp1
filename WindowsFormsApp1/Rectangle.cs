@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         public Rectangle(Color colour, int x, int y, int width, int height) : base( x, y)
         {
 
-            this.width = width; //the only thingthat is different from shape
+            this.width = width; //the only thing that is different from shape
             this.height = height;
         }
 

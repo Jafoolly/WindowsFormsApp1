@@ -40,6 +40,38 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine("Invalid shape: " + e);
             }
+            //add some random shapes
+            Random rand = new Random(77887);
+            for (int i = 0; i < 150; i++)
+            {
+                int x = rand.Next(Size.Width);
+                int y = rand.Next(Size.Height);
+                int size = rand.Next(250);
+
+                int red = rand.Next(255);
+                int green = rand.Next(255);
+                int blue = rand.Next(255);
+
+                Color newColour = Color.FromArgb(128, red, green, blue); //128 is semi transparent
+
+                int shape = rand.Next(2);
+                Shape s;
+                switch (shape)
+                {
+                    case 0:
+                        s = factory.getShape("circle");
+                        s.set(newColour, x, y, size);
+                        shapes.Add(s);// new Circle(newColour, x, y, size));
+
+                        break;
+                    case 1:
+                        s = factory.getShape("rectangle");
+                        s.set(newColour, x, y, size, size);
+                        shapes.Add(s);
+                        break;
+
+                }
+            }
         }
 
         
@@ -60,7 +92,8 @@ namespace WindowsFormsApp1
 
             if (input.Contains("Circle"))
             {
-              
+                try
+                {
                     string[] moveCircle = input.Split();
                     string radius = moveCircle[1];
 
@@ -69,9 +102,36 @@ namespace WindowsFormsApp1
                     Console.WriteLine(radius);
 
                     g.DrawEllipse(pen, 0, 0, rad, rad);
-                
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error! The input should look like this Circle 50");
+                }
                 
             }
+
+            if (input.Contains("Rectangle"))
+            {
+                try
+                {
+                    var moveRect = input.Split();
+                    var width = moveRect[1];
+                    var height = moveRect[2];
+
+                    var widf = int.Parse(width);
+                    var heit = int.Parse(height);
+
+                    Console.WriteLine(width );
+                    Console.WriteLine(height);
+
+                    g.DrawRectangle(pen, 0, 0, widf, heit);
+                }
+                 catch (Exception)
+                {
+                    MessageBox.Show("Error! The input should look like this Rectangle 0 0");
+                }
+            }
+
             if (input.Contains("move"))
             {
                 string[] movement = input.Split();
@@ -83,6 +143,8 @@ namespace WindowsFormsApp1
 
                 Console.WriteLine(x);
                 Console.WriteLine(y);
+
+                g.DrawLine(pen, 0, 0, numX, numY);
             }
 
             for (int i = 0; i < shapes.Count; i++)
