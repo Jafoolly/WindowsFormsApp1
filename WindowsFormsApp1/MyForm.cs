@@ -155,6 +155,27 @@ namespace WindowsFormsApp1
                     
                 }
 
+                if (input.Contains("Triangle"))
+                {
+
+                    // Create pen.
+                    Pen blackPen = new Pen(Color.Black, 3);
+
+                    // Create points that define polygon.
+                    PointF point1 = new PointF(50.0F, 50.0F);
+                    PointF point2 = new PointF(100.0F, 25.0F);
+                    PointF point3 = new PointF(200.0F, 50.0F);
+                    PointF[] curvePoints =
+                             {
+                 point1,
+                 point2,
+                 point3
+             };
+
+                    // Draw polygon curve to screen.
+                    graphics.DrawPolygon(blackPen, curvePoints);
+
+                }
 
                 if (input.Contains("Move"))
                 {
