@@ -12,25 +12,22 @@ using System.Collections;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
-    {
-
-
-        private static Pen activePen;
+    public partial class MyForm : Form
+    { 
         ShapeFactory shapeFactory = new ShapeFactory();
-        Pen pen = new Pen(Color.Black);
-        Graphics g;
+        Pen MyPen = new Pen(Color.Black);
+        Graphics graphics;
         int X = 0;
         int Y = 0;
 
 
         private ArrayList shapes = new ArrayList();
-        bool penPosition = false;
+        
 
-        public Form1()
+        public MyForm()
         {
             InitializeComponent();
-            g = pictureBox1.CreateGraphics();
+            graphics = pictureBox1.CreateGraphics();
 
             ShapeFactory factory = new ShapeFactory();
             try
@@ -83,15 +80,22 @@ namespace WindowsFormsApp1
             var input = textBox1.Text;
             input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
-            if (input.Contains("PenUp"))
+            /*
+             * Pen statements need finishing
+             */
+             
+            if (input.Contains("Penup"))
             {
-                pen.Color = Color.White;
-            }
-            else if (input.Contains("PenDown"))
-            {
-                pen.Color = Color.Black;
-            }
+                //if penup, do this
+                
 
+                Console.WriteLine("Pen is up");
+            }
+           else if (input.Contains("Pendown"))
+            {
+                Console.WriteLine("Pen is down");
+            }
+               
             if (input.Contains("Circle"))
             {
                 try
@@ -99,11 +103,9 @@ namespace WindowsFormsApp1
                     string[] moveCircle = input.Split();
                     string radius = moveCircle[1];
 
-                    int rad = int.Parse(radius);
+                    int Rad = int.Parse(radius);
 
-                    Console.WriteLine(radius);
-
-                    g.DrawEllipse(pen, X, Y, rad, rad);
+                    graphics.DrawEllipse(MyPen , X, Y, Rad, Rad);
                 }
                 catch (Exception)
                 {
@@ -120,13 +122,10 @@ namespace WindowsFormsApp1
                     var width = moveRect[1];
                     var height = moveRect[2];
 
-                    var widf = int.Parse(width);
-                    var heit = int.Parse(height);
+                    var W = int.Parse(width);
+                    var H = int.Parse(height);
 
-                    Console.WriteLine(width );
-                    Console.WriteLine(height);
-
-                    g.DrawRectangle(pen, X, Y, widf, heit);
+                    graphics.DrawRectangle(MyPen, X, Y, W, H);
                 }
                  catch (Exception)
                 {
@@ -140,70 +139,23 @@ namespace WindowsFormsApp1
                 string x = movement[1];
                 string y = movement[2];
 
-                int numX = int.Parse(x);
-                int numY = int.Parse(y);
+                int x2 = int.Parse(x);
+                int y2 = int.Parse(y);
 
-                Console.WriteLine(x);
-                Console.WriteLine(y);
-
-                g.DrawLine(pen, X, Y, numX, numY);
-                Y = numX;
-                X = numY;
+                graphics.DrawLine(MyPen, X, Y, x2, y2);
+                Y = x2;
+                X = y2;
             }
-
-            for (int i = 0; i < shapes.Count; i++)
-            {
-
-            }
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            g.Clear(Color.White);
+            graphics.Clear(Color.White);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text = String.Empty;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void f(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (penPosition = false) ;
-            {
-
-            }
-        }
-
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
         }
     }
 }
