@@ -45,11 +45,11 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.Location = new System.Drawing.Point(576, 178);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1008, 860);
+            this.pictureBox1.Size = new System.Drawing.Size(682, 597);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.f);
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.c);
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // button1
             // 
@@ -67,8 +67,9 @@
             this.textBox1.Location = new System.Drawing.Point(23, 42);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(531, 996);
+            this.textBox1.Size = new System.Drawing.Size(531, 733);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button2
             // 
