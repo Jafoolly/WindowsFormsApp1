@@ -2,7 +2,7 @@
 
 namespace WindowsFormsApp1
 {
-    public abstract class Shape : Shapes
+    public abstract class Shape : ShapesInterface
     {
         protected Color colour;
         protected int x, y;
@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
             x = y = 100;
         }
 
-        public Shape(int x, int y);
+        public Shape( int x, int y)
         {
             this.colour = colour;
             this.x = x;

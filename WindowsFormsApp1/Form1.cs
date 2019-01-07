@@ -8,15 +8,21 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private System.Drawing.Graphics g;
-        private ArrayList shapes = new ArrayList();
-        private static Pen activepen;
 
+
+        private static Pen activePen;
+        ShapeFactory shapeFactory = new ShapeFactory();
+        Pen pen = new Pen(Color.Black);
+        Graphics g;
+
+
+        private ArrayList shapes = new ArrayList();
         bool penPosition = false;
 
         public Form1()
@@ -27,7 +33,8 @@ namespace WindowsFormsApp1
             ShapeFactory factory = new ShapeFactory();
             try
             {
-                shapes.add(factory.getShape("circle"));
+                shapes.Add(factory.getShape("circle"));
+                shapes.Add(factory.getShape("rectangle"));
             }
             catch (ArgumentException e)
             {
@@ -39,10 +46,50 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // if user enters rectangle then
-               // call rectangle class
-            // draw a rectangle
-           // if user doesnt call rectangle then move on to next line 
+            var input = textBox1.Text;
+            input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+            if (input.Contains("PenUp"))
+            {
+                pen.Color = Color.White;
+            }
+            else if (input.Contains("PenDown"))
+            {
+                pen.Color = Color.Black;
+            }
+
+            if (input.Contains("Circle"))
+            {
+              
+                    string[] moveCircle = input.Split();
+                    string radius = moveCircle[1];
+
+                    int rad = int.Parse(radius);
+
+                    Console.WriteLine(radius);
+
+                    g.DrawEllipse(pen, 0, 0, rad, rad);
+                
+                
+            }
+            if (input.Contains("move"))
+            {
+                string[] movement = input.Split();
+                string x = movement[1];
+                string y = movement[2];
+
+                int numX = int.Parse(x);
+                int numY = int.Parse(y);
+
+                Console.WriteLine(x);
+                Console.WriteLine(y);
+            }
+
+            for (int i = 0; i < shapes.Count; i++)
+            {
+
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,7 +99,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            g.Clear(Color.Red);
+            g.Clear(Color.White);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -72,10 +119,23 @@ namespace WindowsFormsApp1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (penPosition = false) ;
+            {
 
+            }
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }

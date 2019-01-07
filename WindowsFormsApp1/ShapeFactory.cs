@@ -4,13 +4,22 @@ namespace WindowsFormsApp1
 {
     class ShapeFactory
     {
-        public ShapeFactory getShape(String shapeType)
+        public Shape getShape(String shapeType)
         {
             shapeType = shapeType.ToUpper().Trim();
 
             if (shapeType.Equals("CIRCLE"))
             {
                 return new Circle();
+            }
+            else if (shapeType.Equals("RECTANGLE"))
+                {
+                return new Rectangle();
+                }
+            else
+            {
+                System.ArgumentException argsEx = new System.ArgumentException("Error; " + shapeType + " does not exist");
+                throw argsEx;
             }
         }
 
