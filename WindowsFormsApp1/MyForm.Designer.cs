@@ -56,7 +56,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.Location = new System.Drawing.Point(576, 178);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(682, 597);
+            this.pictureBox1.Size = new System.Drawing.Size(636, 597);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -76,7 +76,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 42);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(531, 786);
+            this.textBox1.Size = new System.Drawing.Size(531, 733);
             this.textBox1.TabIndex = 2;
             // 
             // button2
@@ -169,35 +169,35 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(63, 0);
+            this.toolStripLabel1.Size = new System.Drawing.Size(64, 0);
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(63, 0);
+            this.toolStripButton1.Size = new System.Drawing.Size(64, 0);
             this.toolStripButton1.Text = "Load";
             this.toolStripButton1.ToolTipText = "Load\r\n";
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(63, 0);
+            this.toolStripLabel2.Size = new System.Drawing.Size(64, 0);
             // 
             // Savebutton
             // 
             this.Savebutton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Savebutton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Savebutton.Name = "Savebutton";
-            this.Savebutton.Size = new System.Drawing.Size(63, 4);
+            this.Savebutton.Size = new System.Drawing.Size(64, 4);
             this.Savebutton.Text = "Save";
             this.Savebutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(63, 32);
+            this.toolStripLabel3.Size = new System.Drawing.Size(64, 32);
             this.toolStripLabel3.Text = "Save";
             this.toolStripLabel3.Click += new System.EventHandler(this.Save_Click);
             // 

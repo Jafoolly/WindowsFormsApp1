@@ -2,7 +2,7 @@
 
 namespace WindowsFormsApp1
 {
-    public abstract class Shape : ShapesInterface
+    public abstract class Shape : ShapesInterface //: is used to inherit the properties of base class-ShapesInterface.
     {
         protected Color colour;
         protected int x, y;
@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 
         public Shape( int x, int y)
         {
-            this.colour = colour;
+            colour = colour;
             this.x = x;
             this.y = y;
         }
@@ -24,8 +24,8 @@ namespace WindowsFormsApp1
     public virtual void set(Color colour, params int[] list)
     {
         this.colour = colour;
-        this.x = list[0];
-        this.y = list[1];
+        x = list[0];
+        y = list[1];
     }
 
     public override string ToString()

@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace WindowsFormsApp1
 {
-    class Rectangle: Shape
+    class Rectangle: Shape //Shapes is the parent class to Rectangle
         
     {
         int width, height;
@@ -17,6 +15,7 @@ namespace WindowsFormsApp1
             height = 100;
         }
         public Rectangle(Color colour, int x, int y, int width, int height) : base( x, y)
+                        //pen colour, setting x and y, setting W and H of Rectangle, base of x and y being starting point.
         {
 
             this.width = width; //the only thing that is different from shape
